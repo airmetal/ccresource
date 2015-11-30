@@ -1,0 +1,6 @@
+displayName,id,type,city,state,country,latitude,longitude
+US - West,NA3,MCP 1.0,Santa Clara,California,US,37.3541079,-121.9552356
+US - East,NA1,MCP 1.0,Ashburn,Virginia,US,39.0437567,-77.4874416
+US - East 2,NA5,MCP 1.0,Ashburn,Virginia,US,39.0437567,-77.4874416
+US - East 3 - MCP 2.0,NA9,MCP 2.0,Ashburn,Virginia,US,39.0437567,-77.4874416
+US - West - MCP 2.0,NA12,MCP 2.0,Santa Clara,California,US,37.3541079,-121.9552356
