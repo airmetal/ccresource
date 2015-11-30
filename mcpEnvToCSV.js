@@ -5,40 +5,46 @@ var requestp = require('request-promise');
 var json2csv = require('json2csv');
 var fs = require('fs');
 var async = require('async');
+var select = require('xpath.js')
+      , dom = require('xmldom').DOMParser
 
-var geocoderProvider = 'google';
 var httpAdapter = 'http';
-// optionnal
-var extra = {
-    apiKey: 'YOUR_API_KEY', // for Mapquest, OpenCage, Google Premier
-    formatter: null         // 'gpx', 'string', ...
-};
-
-var geocoder = require('node-geocoder')(geocoderProvider);
+var path = process.argv[4];
 
 var now = new Date();
-
+var orgId = '';
 var options = {
-    url: 'https://api-na.dimensiondata.com/caas/2.0/6ea2bab8-afd5-4ebf-baf5-7e3f82d50e85/infrastructure/datacenter',
+    url: '',
     headers: {
         'Accept':'application/json'
     },
     auth: {
-        'user': 'andrew.das',
-        'pass': 'J82apra&panEbraC'
+        'user': process.argv[2],
+        'pass': process.argv[3]
     }
 };
 
 var optionsp = {
-    uri: 'https://api-na.dimensiondata.com/caas/2.0/6ea2bab8-afd5-4ebf-baf5-7e3f82d50e85/infrastructure/datacenter',
+    uri: 'https://api-na.dimensiondata.com/caas/2.0/'+orgId+'/infrastructure/datacenter',
     headers: {
         'Accept':'application/json'
     },
     auth: {
-        'user': 'andrew.das',
-        'pass': 'J82apra&panEbraC'
+        'user': process.argv[2],
+        'pass': process.argv[3]
     },
     json: true
+};
+
+var optionsMyAccount = {
+    url: 'https://api-na.dimensiondata.com/oec/0.9/myaccount',
+    headers: {
+        'Accept':'application/xml'
+    },
+    auth: {   
+        'user': process.argv[2],
+        'pass': process.argv[3]
+    }
 };
 
 var fields_Location = ['displayName', 'id', 'type', 'city', 'state', 'country', 'latitude', 'longitude' ];
@@ -54,7 +60,7 @@ var publicIps = [];
 function callToNAT(networkdomains) {
     var natRule = [];
     async.forEach(networkdomains, function (item, callback) {
-        optionsp.uri = 'https://api-na.dimensiondata.com/caas/2.0/6ea2bab8-afd5-4ebf-baf5-7e3f82d50e85/network/natRule';
+        optionsp.uri = 'https://api-na.dimensiondata.com/caas/2.0/'+orgId+'/network/natRule';
         //console.log('Network Domain: ', item.id);
         optionsp.uri = optionsp.uri + '?networkDomainId=' + item.id;
         requestp(optionsp).then(function (body) {
@@ -108,9 +114,9 @@ function callToNAT(networkdomains) {
         //console.log(JSON.stringify(natRule));
         json2csv({data: natRule, fields: fields_NatRule, quotes: '', defaultValue: 'NULL'}, function (err, csv) {
             if (err) console.log(err);
-            fs.writeFile('/Users/andrewdas/Documents/Code/DD/MCPClient/mcpAPItoCSV/data/natrule.csv', csv, function (err) {
+            fs.writeFile(path+'/natrule.csv', csv, function (err) {
                 if (err) throw err;
-                console.log('natrule file saved');
+                console.log('Natrule CSV created');
             });
         });
     });
@@ -119,7 +125,7 @@ function callToNAT(networkdomains) {
 
 function callToPublicIps(networkdomains){
     async.forEach(networkdomains, function(item, callback){
-        optionsp.uri = 'https://api-na.dimensiondata.com/caas/2.0/6ea2bab8-afd5-4ebf-baf5-7e3f82d50e85/network/publicIpBlock';
+        optionsp.uri = 'https://api-na.dimensiondata.com/caas/2.0/'+orgId+'/network/publicIpBlock';
         //console.log('Network Domain: ',item.id);
         optionsp.uri = optionsp.uri + '?networkDomainId=' + item.id;
         requestp(optionsp).then(function(body) {
@@ -143,9 +149,9 @@ function callToPublicIps(networkdomains){
         //console.log(JSON.stringify(publicIps));
         json2csv({ data: publicIps, fields: fields_PublicIps, quotes:'' , defaultValue:'NULL'}, function(err, csv) {
             if (err) console.log(err);
-            fs.writeFile('/Users/andrewdas/Documents/Code/DD/MCPClient/mcpAPItoCSV/data/publicips.csv', csv, function(err) {
+            fs.writeFile(path+'/publicips.csv', csv, function(err) {
                 if (err) throw err;
-                console.log('publicips file saved');
+                console.log('PublicIPs CSV created');
             });
         });
     });
@@ -155,7 +161,7 @@ function callToPublicIps(networkdomains){
 function callToFirewallRules(networkdomains){
     var firewallRule = [];
     async.forEach(networkdomains, function(item, callback){
-        optionsp.uri = 'https://api-na.dimensiondata.com/caas/2.0/6ea2bab8-afd5-4ebf-baf5-7e3f82d50e85/network/firewallRule';
+        optionsp.uri = 'https://api-na.dimensiondata.com/caas/2.0/'+orgId+'/network/firewallRule';
         //console.log('Network Domain: ',item.id);
         optionsp.uri = optionsp.uri + '?networkDomainId=' + item.id;
         requestp(optionsp).then(function(body) {
@@ -179,9 +185,9 @@ function callToFirewallRules(networkdomains){
         //console.log(JSON.stringify(firewallRule));
         json2csv({ data: firewallRule, fields: fields_FirewallRule, quotes:'' , defaultValue:'NULL'}, function(err, csv) {
             if (err) console.log(err);
-            fs.writeFile('/Users/andrewdas/Documents/Code/DD/MCPClient/mcpAPItoCSV/data/firewallrule.csv', csv, function(err) {
+            fs.writeFile(path+'/firewallrule.csv', csv, function(err) {
                 if (err) throw err;
-                console.log('firewallrule file saved');
+                console.log('Firewallrule CSV created');
             });
         });
     });
@@ -197,13 +203,9 @@ function getServers(error, response, body) {
 		}
         json2csv({ data: info.server, fields: fields_Server, quotes:'', defaultValue:'NULL' }, function(err, csv) {
             if (err) console.log(err);
-            fs.writeFile('/Users/andrewdas/Documents/Code/DD/MCPClient/mcpAPItoCSV/data/servers-'+now+'.csv', csv, function(err) {
+            fs.writeFile(path+'/servers.csv', csv, function(err) {
                 if (err) throw err;
-                console.log('file saved');
-            });
-            fs.appendFile('/Users/andrewdas/Documents/Code/DD/MCPClient/mcpAPItoCSV/final/servers-'+now.getMonth()+'.csv', csv, function(err) {
-                if (err) throw err;
-                console.log('file appended');
+                console.log('Servers CSV created');
             });
         });
 
@@ -217,13 +219,13 @@ function getVlans(error, response, body) {
         var info = JSON.parse(body);
         json2csv({ data: info.vlan, fields: fields_Vlans, quotes:'' , defaultValue:'NULL'}, function(err, csv) {
             if (err) console.log(err);
-            fs.writeFile('/Users/andrewdas/Documents/Code/DD/MCPClient/mcpAPItoCSV/data/vlans.csv', csv, function(err) {
+            fs.writeFile(path+'/vlans.csv', csv, function(err) {
                 if (err) throw err;
-                console.log('file saved');
+                console.log('Vlans file created');
             });
         });
         //Get Servers
-        options.url = 'https://api-na.dimensiondata.com/caas/2.0/6ea2bab8-afd5-4ebf-baf5-7e3f82d50e85/server/server';
+        options.url = 'https://api-na.dimensiondata.com/caas/2.0/'+orgId+'/server/server';
         request(options, getServers);
 
     }else{
@@ -236,9 +238,9 @@ function getNetworkDomains(error, response, body) {
         var info = JSON.parse(body);
          json2csv({ data: info.networkDomain, fields: fields_NetworkDomains, quotes:'' , defaultValue:'NULL'}, function(err, csv) {
             if (err) console.log(err);
-                fs.writeFile('/Users/andrewdas/Documents/Code/DD/MCPClient/mcpAPItoCSV/data/networkdomain.csv', csv, function(err) {
+                fs.writeFile(path+'/networkdomain.csv', csv, function(err) {
             if (err) throw err;
-                console.log('file saved');
+                console.log('NetworkDomain CSV created');
             });
          });
         //Get Public IPS
@@ -251,7 +253,7 @@ function getNetworkDomains(error, response, body) {
         callToNAT(info.networkDomain);
 
         //Get VLANS
-        options.url = 'https://api-na.dimensiondata.com/caas/2.0/6ea2bab8-afd5-4ebf-baf5-7e3f82d50e85/network/vlan';
+        options.url = 'https://api-na.dimensiondata.com/caas/2.0/'+orgId+'/network/vlan';
         request(options, getVlans);
 
     }else{
@@ -264,36 +266,38 @@ function getLocations(error, response, body) {
         var info = JSON.parse(body);
         var tmp = [];
         tmp = info.datacenter.slice();
-        console.log(tmp);
-        async.forEach(info.datacenter, function(item, callback){
-            var addr = item.city + ', '+ item.state+ ', '+ item.country, key='AIzaSyBgj9IWADBaA1GqoT6HJYkX99Clphlqr2c';
-            geocoder.geocode({address: addr}, function(err, res) {
-                console.log(res);
-                item.latitude = res[0].latitude.toString();
-                item.longitude = res[0].longitude.toString();
-                callback();
-            });
-
-        }, function(err){
-            //console.log(JSON.stringify(publicIps));
-            json2csv({ data: info.datacenter, fields: fields_Location, quotes:'' , defaultValue:'NULL'}, function(err, csv) {
+        json2csv({ data: info.datacenter, fields: fields_Location, quotes:'' , defaultValue:'NULL'}, function(err, csv) {
                 if (err) console.log(err);
-                fs.writeFile('/Users/andrewdas/Documents/Code/DD/MCPClient/mcpAPItoCSV/data/locations.csv', csv, function(err) {
+                fs.writeFile(path+'/locations.csv', csv, function(err) {
                     if (err) throw err;
-                    console.log('file saved');
+                    console.log('Locations CSV created');
                 });
-            });
         });
 
         //Get Network Domains
-        options.url = 'https://api-na.dimensiondata.com/caas/2.0/6ea2bab8-afd5-4ebf-baf5-7e3f82d50e85/network/networkDomain';
+        options.url = 'https://api-na.dimensiondata.com/caas/2.0/'+orgId+'/network/networkDomain';
         request(options, getNetworkDomains);
 
     }else{
-        console.log(error);
+        console.log(response);
     }
 }
 
+//  My Account API processing
+function getMyAccount(error, response, body) {
+	if (!error && response.statusCode == 200) {
+	    console.log('Received valid response from My Account API...');
+    	var doc = new dom().parseFromString(body);
+    	orgId = select(doc, "//*[local-name()='orgId']/text()")[0].data
+    	console.log('Your Organization ID: '+orgId);
+    	//Invoke Locations API
+    	options.url = 'https://api-na.dimensiondata.com/caas/2.0/'+orgId+'/infrastructure/datacenter';
+		request(options, getLocations);
+	}else{
+   		console.log('Received invalid response or error from My Account API...');
+        console.log(JSON.parse(body));
+    }
 
+}
 //Get Locations
-request(options, getLocations);
+request(optionsMyAccount, getMyAccount);
