@@ -7,10 +7,9 @@ var fs = require('fs');
 var async = require('async');
 var select = require('xpath.js')
       , dom = require('xmldom').DOMParser
-
 var httpAdapter = 'http';
-var path = process.argv[4];
 
+var path = process.argv[4];
 var now = new Date();
 var orgId = '';
 var options = {

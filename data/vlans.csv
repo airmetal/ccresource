@@ -1,0 +1,71 @@
+networkDomain.id,networkDomain.name,name,id,datacenterId
+e3b5c08a-a74e-41c2-b6a8-186cbaa86299,JBs First Domain Deployment,JB's First VLAN,526a4ac4-a7d4-45ed-8da4-4a5076b3d1ee,NA9
+e3b5c08a-a74e-41c2-b6a8-186cbaa86299,JBs First Domain Deployment,JB 2nd VLAN,126a9a9f-451f-4313-ad7a-052a286e5225,NA9
+2709df9f-d07e-4627-8042-e4cfa316a963,Ben's Network Domain,DMZ Network,ad7d2a88-901e-4d35-baf6-117d7f715309,NA9
+3fce94ce-7237-494b-abeb-0bb8dbfc37a9,Cisco Network Domain,Web DMZ VLAN,59c0a00d-6362-467e-8f57-2f81e0b85561,NA9
+11b87069-4958-4d7b-b0b2-1520f731e01f,Greg's First Network Domain,demoVLAN01,04a5f4f6-546b-4bd0-b549-80dfc7d1870d,NA9
+e7630d6b-4de4-4f9a-aaba-7f057f2aeb20,John-Test,VLAN 1,2bc6210e-ee34-4f90-bcf1-f3d9df0dc476,NA9
+b1e72abb-b57b-496f-afaf-2022d7b151db,TEST AV,Main VLAN,cf48588a-593d-4309-a723-45727d284818,NA9
+b1e72abb-b57b-496f-afaf-2022d7b151db,TEST AV,BackEnd,137de445-d39f-4fde-9716-de417bc669d9,NA9
+2709df9f-d07e-4627-8042-e4cfa316a963,Ben's Network Domain,Development VLAN,c03ad8f0-3d55-4ca3-b688-0e79071d5db5,NA9
+2680394d-c641-49ca-a471-2add57a8f395,My Demo Domain,Server 1,dfed7bd5-7d12-443f-867b-7a31d0cf5eef,NA9
+3ebc07de-4bac-4ccd-990e-275a32c9b4fd,Troy Indaba Network Domain,VLAN1,f210cb73-18f2-4a70-98a9-dab993b43ce5,NA9
+3ebc07de-4bac-4ccd-990e-275a32c9b4fd,Troy Indaba Network Domain,Test2,50fe4522-6b11-4ac5-9f3f-b35489aa40cd,NA9
+53206c98-dd27-4f86-8b3d-34b8679e1e09,EMC test,DiData_EMCWorld,f886ab5d-6b95-4121-9f32-4ac8a02a559c,NA9
+53206c98-dd27-4f86-8b3d-34b8679e1e09,EMC test,tesint32,f2cc6ced-b1b4-44b6-945b-edf87b83aa3d,NA9
+7ccd6987-4338-48f4-826e-c43ada2657ca,Josh's Network,VLAN #1,a109d5f5-1368-478b-95f4-f710bf81391a,NA9
+ce4473dd-1ae9-4df9-9b2a-5dde55fa4cdf,Demo,Test,9fad3925-b26e-4f45-af63-ae7b75273be4,NA9
+2709df9f-d07e-4627-8042-e4cfa316a963,Ben's Network Domain,Web DMZ,5ba65192-f376-44c5-ab59-c4de44569992,NA9
+7ccd6987-4338-48f4-826e-c43ada2657ca,Josh's Network,VLAN #2,bb194d71-1d51-4140-bb61-f029bf08731b,NA9
+7ccd6987-4338-48f4-826e-c43ada2657ca,Josh's Network,VLAN #3,0c2ecca9-d2cf-4f8d-9f4b-829c81093d35,NA9
+2709df9f-d07e-4627-8042-e4cfa316a963,Ben's Network Domain,Ben123,287e464e-dd92-4792-ad20-30806de28ae2,NA9
+e7630d6b-4de4-4f9a-aaba-7f057f2aeb20,John-Test,VLAN 300,24079ff5-7552-4d05-a6af-317f9b2917b6,NA9
+b6c2afb2-07a9-4d9e-a118-b0c949a1e8f5,KC Hadoop,KCVLAN1,bf128a09-097a-46db-966e-620aa3deb55d,NA9
+006ea1be-6746-4e3f-abae-5270594e6bf3,RJax_Domain,DMZ,eb32dbcc-e440-4356-8ce8-03f23dca53db,NA9
+ce4473dd-1ae9-4df9-9b2a-5dde55fa4cdf,Demo,CL2015 Demo,4521c0e3-f638-4ce0-8cc6-ccc4b36cb812,NA9
+f4937b8f-6ce9-4138-a270-18e5dd8e3a23,Do Not Delete!  Dave Edwards Demo Network Domain for SAP HANA,VLAN-Prod,d3db8d9c-0d81-4ca2-8db2-ed4a28777e9e,NA9
+2be9104d-ce19-4634-bd11-d6173eaae18f,Brantley's Test Domain,TestVLAN,38237e6e-8853-4646-a6c3-ad2e4d4aec76,NA9
+a48fd2f8-bb3c-4200-85ba-20d19421f199,Joe A,DT1,d2604aba-6f3c-4384-bfe6-0d86508ae06c,NA9
+a48fd2f8-bb3c-4200-85ba-20d19421f199,Joe A,DT2,3bb956f0-d5b8-4e2b-bd7c-e6709c6a2c8f,NA9
+e7630d6b-4de4-4f9a-aaba-7f057f2aeb20,John-Test,VLAN 200,a887d6fa-987a-4d57-a4cb-4181ff98b215,NA9
+8b914f97-80db-4e57-83bf-ff593a41d233,Demo Network,Test VLAN - Demo,50c829b3-1493-49b3-a42c-ed4a542045b1,NA12
+8b914f97-80db-4e57-83bf-ff593a41d233,Demo Network,Web DMZ VLAN,b4e7ecf7-d49f-4fcf-85d1-f8f9c22b283e,NA12
+def84afc-f9c9-49e7-aa9a-1b3d91b4fbdf,David K Demo Domain,Default,02e6eb57-4b50-4b74-a959-c1fe26c5b269,NA12
+e7630d6b-4de4-4f9a-aaba-7f057f2aeb20,John-Test,Vlan 400,64592e8e-de7f-40fa-9f64-1fb0a3625684,NA9
+12d0ad18-1596-4e36-8dda-75735aef4f33,Ben Network,Web DMZ,c93d4332-b676-4f6a-8902-41f1aee0d96c,NA12
+11b87069-4958-4d7b-b0b2-1520f731e01f,Greg's First Network Domain,VLAN02,e4643951-45d4-421e-bfef-be0c7b1688ac,NA9
+2709df9f-d07e-4627-8042-e4cfa316a963,Ben's Network Domain,DMZ SFTP,4c24463b-ece5-47ef-b337-45054b87e334,NA9
+b0bebfcb-3d8d-4d39-99bd-71bed8ea026d,AndrewDas Network Domain,VLAN1,12a85848-d04d-4f89-a5df-9991d13edd01,NA12
+cac425da-a92e-4f1b-81b9-d250b617717c,DavidK Demo Domain,DavidVLAN1,e8adec48-49d3-4d3c-b082-d55e4b10dfb0,NA9
+cac425da-a92e-4f1b-81b9-d250b617717c,DavidK Demo Domain,Vlan2,9ffffbf8-52b7-4b4b-838d-7ad48ad55f90,NA9
+2ac1ac19-4e98-4d83-a56b-16e866056f49,Do Not Delete!  Dave Edwards Demo Network Domain for SAP HANA,VLAN-Non-PROD,94186a28-c6ae-42e6-b39f-f3e0f7063428,NA12
+b0bebfcb-3d8d-4d39-99bd-71bed8ea026d,AndrewDas Network Domain,VLAN2,744d3e04-e1f9-4424-90f3-bb2d3a083034,NA12
+10ab4770-abcb-4052-8940-1b1ca5941f38,FY16 - Sales Kickoff,Test VLAN,1e4bbfa2-f641-4b05-917a-71227980e330,NA9
+4ba393b5-6f43-41df-a461-54b3304ed00f,CES,Secure1,36a93259-5a95-42e4-ae16-79b8bd6fdba7,NA9
+396dbe06-02f3-4649-8e6f-66cee0c68138,deenesh test - can delete,newvlan,df9f8621-2715-4906-8fc9-746e9225f790,NA9
+8b914f97-80db-4e57-83bf-ff593a41d233,Demo Network,Production,1d866e91-bf54-489e-9972-5da26eb74ac8,NA12
+8b914f97-80db-4e57-83bf-ff593a41d233,Demo Network,DR,cba70670-22a5-4347-80f7-98fbd7cee4fe,NA12
+5a16cfe3-d01e-455b-8a5e-b6eeb52ef9ee,Ho1a, test network,Vlaninterna,4ffb50d0-3cbc-4ef2-8c56-a27cbe447413,NA9
+b6c2afb2-07a9-4d9e-a118-b0c949a1e8f5,KC Hadoop,kc_vlan1,de4b9bff-6b22-4bf3-9fd4-aa0383565ec1,NA9
+2709df9f-d07e-4627-8042-e4cfa316a963,Ben's Network Domain,COH Demo Network,74265f96-52df-4ad0-af06-aa920048e8a8,NA9
+c6c2888b-3ad8-4b70-8a90-c9a93237588b,HW Demo Network Domain,DMZ VLAN,83ed61eb-da31-4f88-bcf9-1671a6f72e1e,NA12
+c5e83e01-d7e3-4357-8725-1f7183f0ae70,delete network,TestVlan,41f770e0-b530-44f3-b3e3-246ae4fe5da8,NA12
+dfcdb573-c54f-445d-86cd-43bf913b37d3,Rodrigo's Network,Rede WEB,3ce5acc3-e6f8-4ac6-9ed9-ef1c3ac3c194,NA9
+dfcdb573-c54f-445d-86cd-43bf913b37d3,Rodrigo's Network,Rede interna,74c5d465-aaec-42bb-a484-9528e3551430,NA9
+2709df9f-d07e-4627-8042-e4cfa316a963,Ben's Network Domain,Test123,df3e9d15-69be-4639-834c-137998e0163d,NA9
+cac425da-a92e-4f1b-81b9-d250b617717c,DavidK Demo Domain,DemoVlan15,5ffdb1c8-b365-4c40-b5a0-f120daee1cea,NA9
+6f5ea54b-e198-4d17-984c-df4d5eb66272,Ankit,ANkit test1,0c73ef91-db24-4bf4-b811-997384c92294,NA9
+633ff927-e29b-41f2-afa0-c3ad797e05ff,A Rogers Demo,App Tier,7d51cdae-daa7-41f2-ad9d-56e0276d8fbe,NA9
+633ff927-e29b-41f2-afa0-c3ad797e05ff,A Rogers Demo,DB Tier,fc713fd3-8e49-4b4c-af84-f0e751544884,NA9
+633ff927-e29b-41f2-afa0-c3ad797e05ff,A Rogers Demo,web tier,a20c4dfd-46e4-48b0-95a2-8e7789616a79,NA9
+38df496a-3494-4b15-a977-c5301a5c57e3,SAP COE,SAP,afb8ad6a-042c-4ef1-9a56-4d39d37a9f59,NA9
+c5e83e01-d7e3-4357-8725-1f7183f0ae70,delete network,DeleteVlan2,be4fdd13-38f3-4a4f-9ed8-453ac8096ea2,NA12
+cecdaa9c-cbd2-4b67-92bc-fe7315df624c,TestNet,TestNetVLAN10,6789c273-3752-4530-aa33-3e2de37ac107,NA12
+f477c88b-412b-489c-b6a0-3bf64a4438c9,Craig Hadix Customer Demo Friday 11202015,Backup,14678e5e-e5d4-458e-81be-9917b3cb699f,NA12
+f477c88b-412b-489c-b6a0-3bf64a4438c9,Craig Hadix Customer Demo Friday 11202015,Craigs_Production_Network,21448edb-dddc-4d3c-8693-60d3b7bbd9ea,NA12
+f477c88b-412b-489c-b6a0-3bf64a4438c9,Craig Hadix Customer Demo Friday 11202015,Craigs_DMZ_Network,acc6defb-02e3-496c-9a96-8d6d33a9c544,NA12
+624e1290-f784-4395-91bc-3a00b6e0b357,fhaze MCP 2.0 Sandbox,Freds Sandbox,751ec281-5c58-4ebf-8ac3-0b7c646c54f9,NA9
+bf35862b-83f7-4a72-be73-e8b315c1d25d,Red Capa 4,Internal_VLAN,46fc4c1e-48d4-4257-97f0-67e088a326af,NA9
+9d778fb4-8a4d-4231-af20-b61ab133fc3e,Adam Test Net,Guest,8002299c-d721-4efb-b7a8-b18adb68b4d9,NA12
+9d778fb4-8a4d-4231-af20-b61ab133fc3e,Adam Test Net,Employee,ad870c53-add8-4f2c-93c4-6bac6fcc6430,NA12
+beaec63d-7ad0-4e48-93d0-cbb4b24e8cd1,Doten-DEMO-MCP2,Prod1,54739d15-20fe-4550-a240-8724fc00a57d,NA12
